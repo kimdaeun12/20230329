@@ -1,7 +1,11 @@
 package org.example;
 import java.util.Scanner;
 public class Main {
-    Scanner sc = new Scanner(System.in);
-    new app(sc).run();
-    sc.close;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        new App(sc).run();
+
+        sc.close();
+    }
+
 }
