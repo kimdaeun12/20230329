@@ -7,12 +7,13 @@ public class App {
 
     public App (Scanner sc){
         this.sc = sc;
-
     }
+
     public void run(){
         System.out.println("==명언엡==");
         int count = 0;
         ArrayList<WiseSaying> sayings = new ArrayList<>();
+
         while (true){
             String command = sc.nextLine().trim();
 
@@ -27,11 +28,17 @@ public class App {
                 int id = count + 1;
                 WiseSaying wiseSaying = new WiseSaying(id,content,name);
                 sayings.add(wiseSaying);
-                System.out.println( count + "번 명언이 등록됐습니다." );
+                System.out.println(count + "번 명언이 등록됐습니다." );
                 count++;
-            }
-            else if (command.equals("목록")){
-                System.out.println("명언 수" + sayings.size());
+            } else if (command.equals("목록")){
+                System.out.println("번호 / 작가 / 명언");
+                System.out.println("-".repeat(30));
+
+                for (int i = sayings.size() - 1; i >= 0; i--) {
+                    WiseSaying wiseSaying = sayings.get(i);
+                    System.out.printf("%d / %s / %s\n", wiseSaying.getId(), wiseSaying.getName(), wiseSaying.getContent());
+                }
+                System.out.println("명언 수: " + sayings.size());
             }
         }
     }
